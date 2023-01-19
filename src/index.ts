@@ -1,4 +1,4 @@
-import { PVP } from './Battle';
+import Battle, { PVP, PVE } from './Battle';
 import Character from './Character';
 import Dragon from './Dragon';
 import Monster from './Monster';
@@ -16,6 +16,12 @@ const monster2 = new Dragon();
 
 const pvp = new PVP(player1, player3);
 
+const pve = new PVE(player1, [monster1, monster2]);
+
+const runBattles = (battles: Battle[]): void => {
+  battles.forEach((battle) => battle.fight());
+};
+
 export {
   player1,
   player2,
@@ -23,4 +29,6 @@ export {
   monster1,
   monster2,
   pvp,
+  pve,
+  runBattles,
 };
